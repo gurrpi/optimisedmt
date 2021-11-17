@@ -252,19 +252,19 @@ describe('Incremental Merkle Tree', () => {
         allTests(arity, depth, hashFunc)
     })
 
-    describe('Arity of 5', () => {
-        const arity = 5
-        const depth = 3
-        const hashFunc = hash5
+    //describe('Arity of 5', () => {
+        //const arity = 5
+        //const depth = 3
+        //const hashFunc = hash5
 
-        allTests(arity, depth, hashFunc)
-    })
+        //allTests(arity, depth, hashFunc)
+    //})
 
-    describe('Arity of 16', () => {
-        const arity = 16
-        const depth = 2
-        const hashFunc = hash16
+    //describe('Arity of 16', () => {
+        //const arity = 16
+        //const depth = 2
+        //const hashFunc = hash16
 
-        allTests(arity, depth, hashFunc)
-    })
+        //allTests(arity, depth, hashFunc)
+    //})
 })
