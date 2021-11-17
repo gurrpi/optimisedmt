@@ -117,24 +117,19 @@ To verify the Merkle path:
 root == h(d, h(a, b))
 ```
 
-<!--
+**Updates**
+
+To perform an update, only `depth - 1` hashes have to be computed.
+
+Consider again this binary Merkle tree with 4 leaves:
 
 ```
-   o
-  l  r
-a b c d
-if you update b, you don't need to recompute r
+[a, b, c, d, h(a, b), h(c, d), h(...)]
 ```
 
-```
-```
-   o
-  x  y
-a b c d
-root = hash(hash(a,b), hash(c,d)) so if you update d you could do 3 hashes 
+To update the leaf at index 2 (whose value is c), only 2 hash operations are
+needed:
 
-hash(a,b) , hash(c,d*) , hash(hash(a,b), hash(c,d*))
-
-I think an impovment is to save hash(a,b) and then calculate hash(c,d*) and hash((hash(a,b,) ,hash(c,d*)) avoiding a hash
 ```
--->
+[a, b, c*, d, h(a, b), h(c*, d), h(...)*]
+```
