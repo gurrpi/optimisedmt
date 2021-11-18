@@ -356,6 +356,29 @@ class OptimisedMT {
 
         return indices
     }
+
+    /*  
+     *  Deep-copies this object
+     */
+    public copy(): OptimisedMT {
+        const newTree = new OptimisedMT(
+            this.depth,
+            this.zeroValue,
+            this.leavesPerNode,
+            this.hashFunc,
+        )
+        newTree.nodes = JSON.parse(
+            JSON.stringify(
+                stringifyBigInts(this.nodes)
+            )
+        )
+        newTree.numNodes = this.numNodes
+        newTree.nextIndex = this.nextIndex
+        newTree.zeros = deepCopyBigIntArray(this.zeros)
+        newTree.root = this.root
+        newTree.nextIndex = this.nextIndex
+        return newTree
+    }
 }
 
 /*
