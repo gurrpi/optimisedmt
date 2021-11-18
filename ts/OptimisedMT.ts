@@ -1,4 +1,5 @@
 const assert = require('assert')
+import { poseidon } from 'circomlibjs'
 const ff = require('ffjavascript')
 const stringifyBigInts: (obj: object) => any = ff.utils.stringifyBigInts
 const unstringifyBigInts: (obj: object) => any = ff.utils.unstringifyBigInts
@@ -378,6 +379,36 @@ class OptimisedMT {
         newTree.root = this.root
         newTree.nextIndex = this.nextIndex
         return newTree
+    }
+
+    public serialize = (): string => {
+        return JSON.stringify(stringifyBigInts({
+            leavesPerNode: this.leavesPerNode,
+            depth: this.depth,
+            zeroValue: this.zeroValue,
+            root: this.root,
+            nextIndex: this.nextIndex,
+            nodes: this.nodes,
+            numNodes: this.numNodes,
+            zeros: this.zeros,
+        }))
+    }
+
+    public static unserialize = (s: string): OptimisedMT => {
+        const d = unstringifyBigInts(JSON.parse(s))
+        const tree = new OptimisedMT(
+            d.depth,
+            d.zeroValue,
+            d.leavesPerNode,
+            poseidon,
+        )
+        tree.root = d.root
+        tree.nextIndex = d.nextIndex
+        tree.nodes = d.nodes
+        tree.numNodes = d.numNodes
+        tree.zeros = d.zeros
+
+        return tree
     }
 }
 
