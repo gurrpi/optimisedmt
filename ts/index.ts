@@ -1,4 +1,5 @@
 const assert = require('assert')
+import { OptimisedMT } from './OptimisedMT'
 import { babyJub, poseidon, eddsa } from 'circomlibjs'
 import * as crypto from 'crypto'
 import * as ethers from 'ethers'
@@ -138,4 +139,5 @@ export {
     SNARK_FIELD_SIZE,
     hashArray,
     poseidon,
+    OptimisedMT,
 }
