@@ -337,7 +337,7 @@ class OptimisedMT {
         _leavesPerNode: number,
         _depth: number,
     ) {
-        assert(_depth > 1)
+        assert(_depth > 0)
         assert(_leavesPerNode > 1)
 
         // The index must be of a leaf

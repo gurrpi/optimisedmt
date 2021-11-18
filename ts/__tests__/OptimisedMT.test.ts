@@ -343,6 +343,7 @@ describe('Incremental Merkle Tree', () => {
     })
 
     it('calcParentIndices', () => {
+        testCalcParentIndices(0, 5, 1, [5])
         testCalcParentIndices(4, 2, 3, [10, 13, 14])
     })
 
