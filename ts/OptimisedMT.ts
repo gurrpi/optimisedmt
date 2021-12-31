@@ -65,6 +65,7 @@ class OptimisedMT {
     public root: bigint
     public nodes: MTNode
     public numNodes: number
+    public capacity: number
 
     constructor(
         _depth: number,
@@ -96,6 +97,7 @@ class OptimisedMT {
 
         this.nodes = {}
         this.nodes[rootIndex] = r.root
+        this.capacity = this.leavesPerNode ** this.depth
     }
 
     /* 
@@ -261,6 +263,14 @@ class OptimisedMT {
         }
 
         return currentLevelHash === _proof.root
+    }
+
+    public getLeaf(
+        _index: number,
+    ) {
+        assert(_index < this.capacity)
+
+        return this.getNode(_index)
     }
 
     public getNode(

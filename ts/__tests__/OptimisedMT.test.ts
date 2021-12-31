@@ -67,6 +67,8 @@ const testInsertion = (
         leaves.push(leaf)
         tree.insert(leaf)
 
+        expect(tree.getLeaf(i)).toEqual(leaf)
+
         const nextIndexAfter = tree.nextIndex
         const rootAfter = tree.root
 
