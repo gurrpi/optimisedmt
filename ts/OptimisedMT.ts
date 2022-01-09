@@ -404,6 +404,10 @@ class OptimisedMT {
         }))
     }
 
+    public equals = (o: OptimisedMT): boolean => {
+        return this.serialize() === o.serialize()
+    }
+
     public static unserialize = (s: string): OptimisedMT => {
         const d = unstringifyBigInts(JSON.parse(s))
         const tree = new OptimisedMT(

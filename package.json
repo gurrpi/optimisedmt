@@ -1,6 +1,6 @@
 {
     "name": "optimisedmt",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "An incremental Merkle tree with optimsed updates",
     "main": "build/index.js",
     "scripts": {
